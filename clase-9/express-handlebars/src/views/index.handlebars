@@ -1,0 +1,24 @@
+<div>
+  <h1>Participantes</h1>
+  <ul>
+    {{#each users}}
+      <li>{{this.name}}</li>
+    {{/each}}
+  </ul>
+
+  <h2>Ganador del sorteo</h2>
+  {{#with selectedUser}}
+    <h3>Nombre: {{name}} </h3>
+    <h3>Apellido: {{lastName}} </h3>
+    <h3>Email: {{email}} </h3>
+    <h3>Telefono: {{phone}} </h3>
+
+    {{#if isAdmin}}
+      <h3>Gano un administrador! hubo fraude 😖</h3>
+    {{else}}
+      <h3>Felicidades! 😉</h3>
+    {{/if}}
+
+  {{/with}}
+</div>
+<script src="/js/index.js"></script>
