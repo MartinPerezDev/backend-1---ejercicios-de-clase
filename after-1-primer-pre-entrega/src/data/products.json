@@ -1,0 +1,13 @@
+[
+  {
+    "id" : 1,
+    "title": "Remera Nike",
+    "description": "Remera deportiva",
+    "code": "pgm232",
+    "price": 250,
+    "status": true,
+    "stock": 10,
+    "category": "remeras",
+    "thumbnail": ""
+  }
+]
