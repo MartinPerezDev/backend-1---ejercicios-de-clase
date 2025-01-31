@@ -1,0 +1,20 @@
+<div class="container-fluid d-flex justify-content-center align-items-center min-vh-100 my-1">
+  <div class="card shadow-lg p-4 rounded w-100 d-flex flex-column" style="max-width: 400px; height: 95vh;">
+    <img class="w-50" src="https://thumbs.dreamstime.com/b/msn-messenger-logo-129294088.jpg" alt="logo msn">
+
+    <form id="formChat" class="mt-3">
+      <div class="input-group">
+        <input type="text" id="inputChat" class="form-control" placeholder="Ingrese su mensaje...">
+        <button type="submit" class="btn btn-primary">Enviar</button>
+      </div>
+    </form>
+
+    <!-- ChatBox ocupa todo el espacio disponible -->
+    <div id="chatBox" class="mt-3 border rounded p-2 flex-grow-1 overflow-auto bg-light d-flex flex-column">
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/index.js"></script>
