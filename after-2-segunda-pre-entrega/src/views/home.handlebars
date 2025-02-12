@@ -1,0 +1,9 @@
+<div>
+  <h1>Home</h1>
+  <h2>Lista de Productos</h2>
+  <ul>
+    {{#each products}}
+      <li>{{this.title}} - {{this.price}}</li>
+    {{/each}}
+  </ul>
+</div>

@@ -1,0 +1,24 @@
+<div>
+  <h1>Real Time Products</h1>
+
+  <h2>Agregar nuevo producto</h2>
+  <form id="formNewProduct">
+    <input type="text" name="title" placeholder="ingrese el titulo" required>
+    <input type="text" name="description" placeholder="ingrese la descripcion" required>
+    <input type="text" name="code" placeholder="ingrese el codigo" required>
+    <input type="number" name="price" placeholder="ingrese el precio" required>
+    <input type="number" name="stock" placeholder="ingrese el stock" required>
+    <input type="text" name="category" placeholder="ingrese la categoria" required>
+
+    <button type="submit">Enviar</button>
+  </form>
+
+  <h2>Lista de Productos</h2>
+  <ul id="productsList">
+    {{#each products}}
+      <li>{{this.title}} - {{this.price}}</li>
+    {{/each}}
+  </ul>
+</div>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/index.js"></script>

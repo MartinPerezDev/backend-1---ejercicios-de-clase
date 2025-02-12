@@ -1,0 +1,79 @@
+[
+  {
+    "id": 1,
+    "title": "Remera Nike",
+    "description": "Remera deportiva",
+    "code": "pgm232",
+    "price": 250,
+    "status": true,
+    "stock": 10,
+    "category": "remeras",
+    "thumbnail": ""
+  },
+  {
+    "id": 2,
+    "title": "Pantalón Adidas",
+    "description": "Pantalón deportivo",
+    "code": "pgm233",
+    "price": 300,
+    "status": true,
+    "stock": 15,
+    "category": "pantalones",
+    "thumbnail": ""
+  },
+  {
+    "id": 3,
+    "title": "Zapatillas Puma",
+    "description": "Zapatillas de running",
+    "code": "pgm234",
+    "price": 500,
+    "status": true,
+    "stock": 20,
+    "category": "zapatillas",
+    "thumbnail": ""
+  },
+  {
+    "id": 4,
+    "title": "Campera Under Armour",
+    "description": "Campera impermeable",
+    "code": "pgm235",
+    "price": 600,
+    "status": true,
+    "stock": 5,
+    "category": "camperas",
+    "thumbnail": ""
+  },
+  {
+    "id": 5,
+    "title": "Gorra Reebok",
+    "description": "Gorra deportiva",
+    "code": "pgm236",
+    "price": 100,
+    "status": true,
+    "stock": 25,
+    "category": "gorras",
+    "thumbnail": ""
+  },
+  {
+    "id": 6,
+    "title": "Buzo",
+    "description": "buzo polar",
+    "code": "Glm211",
+    "price": 5000,
+    "stock": 2,
+    "category": "buzos",
+    "status": true,
+    "thumbnail": ""
+  },
+  {
+    "id": 7,
+    "title": "Gorra",
+    "description": "gorra de verano",
+    "code": "Tm2121",
+    "price": 2000,
+    "stock": 5,
+    "category": "gorras",
+    "status": true,
+    "thumbnail": ""
+  }
+]
