@@ -1,0 +1,53 @@
+<div class="container p-3">
+  <h2 class="text-center mb-3">📝 Nuevo Post</h2>
+
+  <div class="card shadow border-0">
+    <div class="card-body p-3">
+      <form id="postForm">
+        <textarea id="text" name="text" class="form-control mb-2" rows="3" placeholder="Escribe algo..."
+          required></textarea>
+        <button type="submit" class="btn btn-primary w-100">🚀 Publicar</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="text-center mt-3">
+    <a href="/" class="btn btn-outline-secondary w-100">⬅ Volver</a>
+  </div>
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  const socket = io();
+
+  const postForm = document.getElementById("postForm");
+  postForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    try {
+      const userId = localStorage.getItem("userId");
+      if (!userId) {
+        alert("No tenes una sesion activa, porfavor registrese!");
+        window.location.href = "/register";
+        return;
+      }
+
+      const text = document.getElementById("text").value;
+
+      const response = await fetch("/api/posts", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ userId, text })
+      });
+
+      const data = await response.json();
+
+      //emitimos un evento para que todos añadan el nuevo post
+      socket.emit("new post", { ...data.payload });
+      alert("Post creado correctamente!");
+      window.location.href = "/";
+    } catch (error) {
+      console.log(error)
+      alert("Error al crear el post!");
+    }
+  })
+</script>

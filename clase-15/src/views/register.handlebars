@@ -1,0 +1,41 @@
+<div class="container d-flex flex-column justify-content-center align-items-center vh-100">
+  <!-- Encabezado con icono -->
+  <div class="d-flex align-items-center mb-3">
+    <img src="https://cdn-icons-png.flaticon.com/256/124/124010.png" alt="Facebook Icon" class="me-2" width="40" height="40">
+    <h2 class="text-primary fw-bold">Registro</h2>
+  </div>
+
+  <!-- Formulario -->
+  <form id="registerForm" class="card p-4 shadow-sm w-100" style="max-width: 400px;">
+    <div class="mb-3">
+      <label for="username" class="form-label">Nombre de Usuario</label>
+      <input type="text" id="username" name="username" class="form-control" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary w-100">Registrarse</button>
+  </form>
+</div>
+
+
+<script>
+  const registerForm = document.getElementById("registerForm");
+  registerForm.addEventListener("submit", async(event)=>{
+    event.preventDefault();
+    try{
+      const name = document.getElementById("username").value;
+      
+      const response = await fetch("/api/users", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({name})
+      });
+
+      const data = await response.json();
+      localStorage.setItem("userId", data.payload._id);
+      window.location.href = "/";
+    }catch(error){
+      alert("Error al registrar el usuario");
+    }
+  })
+
+</script>

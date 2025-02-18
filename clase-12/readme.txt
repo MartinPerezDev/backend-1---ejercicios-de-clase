@@ -1,0 +1,1 @@
+en esta clase solo vimos comandos de mongodb

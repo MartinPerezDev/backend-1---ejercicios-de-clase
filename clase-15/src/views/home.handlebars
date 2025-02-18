@@ -1,0 +1,55 @@
+<div class="container p-3 d-flex flex-column vh-100">
+  <!-- Encabezado con icono -->
+  <div class="d-flex align-items-center mb-3">
+    <img src="https://cdn-icons-png.flaticon.com/256/124/124010.png" alt="Facebook Icon" width="50px"
+      class="rounded mx-2">
+    <h2 class="text-primary fw-bold">Facebook Posts</h2>
+  </div>
+
+  <!-- Contenedor con scroll -->
+  <div id="postsList" class="flex-grow-1 overflow-auto p-2">
+    {{#each posts}}
+    <div class="card mb-2 shadow-sm border-0">
+      <div class="card-body p-2">
+        <h6 class="text-primary mb-1">@{{this.userId}}</h6>
+        <p class="small text-dark">{{this.text}}</p>
+        <div class="d-flex justify-content-between align-items-center">
+          <span class="text-danger small">❤️ <span id="likes-{{this._id}}">{{this.likes}}</span></span>
+          <button class="btn btn-sm btn-danger" onclick="likePost('{{this._id}}')">❤️ Like</button>
+        </div>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+
+  <!-- Botón fijo para nuevo post -->
+  <div class="bg-white text-center p-2 border-top">
+    <a href="/post" class="btn btn-primary w-100">➕ Nuevo Post</a>
+  </div>
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  const socket = io();
+
+  const likePost = (postId) => {
+    socket.emit("like", postId);
+  }
+
+  socket.on("update likes", ({ postId, likes }) => {
+    const spanLikes = document.getElementById(`likes-${postId}`);
+    spanLikes.innerText = likes;
+  })
+
+  socket.on("broadcast post", (post) => {
+    const postsList = document.getElementById("postsList");
+    postsList.innerHTML += `
+    <li>
+      <strong>${post.userId}</strong>: ${post.text} <br>
+      💖 <span id="likes-${post._id}" >${post.likes}</span>
+      <button onclick="likePost('${post._id}')" >Like</button>
+    </li>
+    `
+  })
+
+</script>
